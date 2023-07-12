@@ -16,7 +16,7 @@ def main(args, logger) -> None:
 
     Parameters:
         args(dict) Contains the settings used
-            errornum(int) Max number of error before finishing program
+            max_error_num(int) Max number of error before finishing program
         logger(logging.Logger) Logs process through the process
     '''
 
@@ -88,12 +88,12 @@ def main(args, logger) -> None:
 
                 return
 
-        # Remove duplicates users
-        output_df.drop_duplicates('handle', ignore_index=True)
-
         # Wait enough time to get result
         # 256 queries for 15 minutes -> 1 query for 3.515625
         time.sleep(3.5156)
+
+    # Remove duplicates users
+    output_df.drop_duplicates('handle', ignore_index=True)
 
     # Save output dataframe as csv file
     output_df.to_csv(os.path.join('data', f'problem_data.csv'))
