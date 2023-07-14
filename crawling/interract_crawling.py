@@ -1,16 +1,10 @@
 import argparse
-import datetime
-import json
 import logging
 import math
 import os
 import pandas as pd
 import requests
-import signal
-import sys
 import time
-import traceback
-import urllib3
 
 
 def main(args, logger) -> None:

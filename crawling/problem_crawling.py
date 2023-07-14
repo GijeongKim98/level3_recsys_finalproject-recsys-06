@@ -5,8 +5,6 @@ import math
 import os
 import pandas as pd
 import requests
-import signal
-import sys
 import time
 
 
