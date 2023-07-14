@@ -54,7 +54,7 @@ def main(args, logger) -> None:
     # Checks for error numbers in code until termination
     error_num = 0
 
-    # Loop through every user ID to get interraction data
+    # Loop through every user ID to get interaction data
     for temp_index, temp_user in enumerate(user_list):
         logging.info(
             f"Index number: {temp_index + args.start_user_index}\tUser name: {temp_user}"
@@ -228,7 +228,7 @@ def main(args, logger) -> None:
     tried_output_df.to_csv(
         os.path.join(
             "data",
-            f"interraction_{args.start_user_index}_{args.end_user_index}_data.csv",
+            f"interaction_{args.start_user_index}_{args.end_user_index}_data.csv",
         ),
         index=False,
     )
