@@ -131,7 +131,7 @@ if __name__ == "__main__":
     create_time = datetime.datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
 
     # Create log file
-    f = open(os.path.join('log', f"user_{create_time}.txt"), "w")
+    f = open(os.path.join("log", f"user_{create_time}.txt"), "w")
 
     # Set basic log settings
     logging.basicConfig(

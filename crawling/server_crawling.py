@@ -22,7 +22,7 @@ def main(logging):
         start_time = datetime.datetime.now()
         logging.info(f"Start Time: {start_time}")
 
-        # Create temporary 
+        # Create temporary
         comp_user_df = pd.DataFrame()
 
         # Setup current page and the maximum page number
