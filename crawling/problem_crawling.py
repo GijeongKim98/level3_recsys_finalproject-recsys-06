@@ -8,7 +8,7 @@ import requests
 import time
 
 
-def main(args, logger) -> None:
+def main(args: dict, logger: logging.Logger) -> None:
     """
     Checks through the problem numbers to get the data and save it as a csv file
 

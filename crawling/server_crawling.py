@@ -8,13 +8,11 @@ import requests
 import time
 
 
-def main(logging):
+def main(logging: logging.Logger) -> None:
     """
     Checks through the user data to get the changed users to update the interaction data
 
     Parameters:
-        args(dict) Contains the settings used
-            max_error_num(int) Max number of error before finishing program
         logger(logging.Logger) Logs process through the process
     """
 

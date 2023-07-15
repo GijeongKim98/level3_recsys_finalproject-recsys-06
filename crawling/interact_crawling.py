@@ -7,7 +7,7 @@ import requests
 import time
 
 
-def main(args, logger) -> None:
+def main(args: dict, logger: logging.Logger) -> None:
     """
     Checks through each user to get the solved/unsolved problem data and save it as a csv file
 
@@ -32,6 +32,7 @@ def main(args, logger) -> None:
     # Check if starting user index is smaller than the ending user index
     if args.start_user_index > args.end_user_index:
         logger.error("Starting user index number higher than ending user index number!")
+        
         return
 
     # Check if user data is in data folder
