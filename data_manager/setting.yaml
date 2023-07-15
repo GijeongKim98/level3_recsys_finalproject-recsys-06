@@ -3,19 +3,19 @@
 # Example yaml used in data manager
 #
 #############################################
-data_manager:
-  path:
-    raw_data_folder_path: raw_data
-    processed_data_folder_path: processed_data
-    atomic_data_folder_path: atomic_data
-    user_data_file: user_data.csv
-    item_data_file: problem_data.csv
-    inter_data_file: interaction_data.csv
-  atomic_user_dict:
-    userID: token
-  atomic_item_dict:
-    problemId: token
-  atomic_inter_dict:
-    userID: token
-    problemId: token
-    answerCode: token
+
+path:
+  raw_data_folder_path: raw_data
+  processed_data_folder_path: processed_data
+  atomic_data_folder_path: atomic_data
+  user_data_file: user_data.csv
+  item_data_file: problem_data.csv
+  inter_data_file: interaction_data.csv
+atomic_user_dict:
+  userID: token
+atomic_item_dict:
+  problemId: token
+atomic_inter_dict:
+  userID: token
+  problemId: token
+  answerCode: token

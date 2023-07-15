@@ -3,6 +3,7 @@ import datetime
 import logging
 import os
 import pandas as pd
+import yaml
 
 
 def process_user_data(input_df: pd.DataFrame) -> pd.DataFrame:
@@ -67,12 +68,12 @@ def process_data(setting, logging):
     '''
 
     # Get folder that contains the raw data
-    raw_data_folder = setting['raw_data_folder_path']
+    raw_data_folder = setting['path']['raw_data_folder_path']
 
     # Get path to data
-    user_data_file = os.path.join(raw_data_folder, setting['user_data_file'])
-    item_data_file = os.path.join(raw_data_folder, setting['item_data_file'])
-    inter_data_file = os.path.join(raw_data_folder, setting['inter_data_file'])
+    user_data_file = os.path.join(raw_data_folder, setting['path']['user_data_file'])
+    item_data_file = os.path.join(raw_data_folder, setting['path']['item_data_file'])
+    inter_data_file = os.path.join(raw_data_folder, setting['path']['inter_data_file'])
 
     logging.debug('Getting raw data from path')
 
@@ -104,15 +105,15 @@ def process_data(setting, logging):
     logging.debug('Saving processed data')
 
     # Save processed data
-    processed_data_folder = setting['processed_data_folder_path']
+    processed_data_folder = setting['path']['processed_data_folder_path']
 
     # Create processed data folder
     if not os.path.isdir(processed_data_folder):
         os.mkdir(processed_data_folder)
 
-    user_data_file = os.path.join(processed_data_folder, setting['user_data_file'])
-    item_data_file = os.path.join(processed_data_folder, setting['item_data_file'])
-    inter_data_file = os.path.join(processed_data_folder, setting['inter_data_file'])
+    user_data_file = os.path.join(processed_data_folder, setting['path']['user_data_file'])
+    item_data_file = os.path.join(processed_data_folder, setting['path']['item_data_file'])
+    inter_data_file = os.path.join(processed_data_folder, setting['path']['inter_data_file'])
 
     processed_user_df.to_csv(user_data_file, index=False)
     processed_item_df.to_csv(item_data_file, index=False)
@@ -121,7 +122,7 @@ def process_data(setting, logging):
     return
 
 
-def main(args, logging):
+def main(setting, logging):
     '''
     Changes raw data to data to be used for training
 
@@ -130,9 +131,6 @@ def main(args, logging):
         logger(logging.Logger) Used for logging
     '''
 
-    # Change the args to a dict (When processing data a yaml with dict will be used)
-    setting = vars(args)
-
     # Process raw data to data that is used for training
     process_data(setting, logging)
 
@@ -140,48 +138,10 @@ def main(args, logging):
 
 
 if __name__ == '__main__':
-	# Setup argparse to get settings
-    parser = argparse.ArgumentParser(description="Set settings for crawling problems.")
-    parser.add_argument(
-        "-l", "--logging", type=str, default="DEBUG", help="Set logging level."
-    )
-    parser.add_argument(
-        "-r",
-        "--raw_data_folder_path",
-        type=str,
-        default="raw_data",
-        help="Path to the raw data folder.",)
-    parser.add_argument(
-        "-u",
-        "--user_data_file",
-        type=str,
-        default="user_data.csv",
-        help="Name of the user data file in the folder.",
-    )
-    parser.add_argument(
-        "-i",
-        "--item_data_file",
-        type=str,
-        default="problem_data.csv",
-        help="Name of the item data file in the folder.",
-    )
-    parser.add_argument(
-        "-t",
-        "--inter_data_file",
-        type=str,
-        default="interaction_data.csv",
-        help="Name of the inter data file in the folder.",
-    )
-    parser.add_argument(
-        "-p",
-        "--processed_data_folder_path",
-        type=str,
-        default="processed_data",
-        help="Path to the output processed data folder.",)
-
-    # Get arguments
-    args = parser.parse_args()
-
+    # Get the settings
+    with open("setting.yaml", "r") as f:
+        setting = yaml.load(f, Loader=yaml.FullLoader)
+    
     start_time = datetime.datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
 
     # Setup logger
@@ -198,10 +158,9 @@ if __name__ == '__main__':
 
     logger = logging.getLogger()
     logger.addHandler(logging.StreamHandler())
-    logger.setLevel(args.logging)
 
     logger.debug("Starting Program")
 
-    main(args, logger)
+    main(setting, logger)
 
     logger.debug("Ending Program")

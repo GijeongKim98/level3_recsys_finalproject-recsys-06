@@ -19,10 +19,12 @@ def create_atomic(setting: dict, logging: logging.Logger) -> None:
 
     logging.debug('Importing data')
 
+    # Get processed data
     from_user_df = pd.read_csv(os.path.join(from_data_path, setting['path']['user_data_file']))
     from_item_df = pd.read_csv(os.path.join(from_data_path, setting['path']['item_data_file']))
     from_inter_df = pd.read_csv(os.path.join(from_data_path, setting['path']['inter_data_file']))
     
+    # Change column name to fit atomic file
     rename_user_dict = {i: f"{i}:{v}" for i, v in setting['atomic_user_dict'].items()}
     rename_item_dict = {i: f"{i}:{v}" for i, v in setting['atomic_item_dict'].items()}
     rename_inter_dict = {i: f"{i}:{v}" for i, v in setting['atomic_inter_dict'].items()}
@@ -35,6 +37,7 @@ def create_atomic(setting: dict, logging: logging.Logger) -> None:
 
     logging.debug('Saving data')
 
+    # Save data to atomic folder with the same name and different extensions
     to_data_path = setting['path']['atomic_data_folder_path']
 
     if not os.path.isdir(to_data_path):
@@ -47,7 +50,7 @@ def create_atomic(setting: dict, logging: logging.Logger) -> None:
     return
 
 
-def main(logging):
+def main(setting, logging):
     '''
     Changes raw data to data to be used for training
 
@@ -55,17 +58,17 @@ def main(logging):
         logger(logging.Logger) Used for logging
     '''
 
-    # Get the settings
-    with open("setting.yaml", "r") as f:
-        setting = yaml.load(f, Loader=yaml.FullLoader)
-
     # Change processed data to atomic data that is used for recbole
-    create_atomic(setting['data_manager'], logging)
+    create_atomic(setting, logging)
     
     return
 
 
 if __name__ == '__main__':
+    # Get the settings
+    with open("setting.yaml", "r") as f:
+        setting = yaml.load(f, Loader=yaml.FullLoader)
+    
     start_time = datetime.datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
 
     # Setup logger
