@@ -187,9 +187,7 @@ if __name__ == '__main__':
     # Setup logger
     if not os.path.isdir('log'):
         os.mkdir('log')
-
-    open(os.path.join("log", f"data_processing_{start_time}.txt"), "w")
-
+    
     logging.basicConfig(
         filename=os.path.join("log", f"data_processing_{start_time}.txt"),
         filemode="a",
