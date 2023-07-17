@@ -88,6 +88,6 @@ if __name__ == '__main__':
 
     logger.debug("Starting Program")
 
-    main(logger)
+    main(setting, logger)
 
     logger.debug("Ending Program")
