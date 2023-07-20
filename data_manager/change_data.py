@@ -18,6 +18,7 @@ def process_user_data(input_df: pd.DataFrame) -> pd.DataFrame:
 
     # Process data
     changed_input_df = input_df
+    
 
     return changed_input_df
 
@@ -33,8 +34,35 @@ def process_item_data(input_df: pd.DataFrame) -> pd.DataFrame:
     '''
 
     # Process data
+    
+    # Delete problems in other languages (except KOR, ENG)
     changed_input_df = input_df
-
+    
+    result = []
+    for index, info in changed_input_df[['problemId','titles']].iterrows():
+        pid, titles = info
+        title_list = eval(titles)
+        for j in title_list:
+            language = j['language']
+            if language=='ko' or language=='en':
+                break
+        else:
+            result.append(pid)
+    changed_input_df=changed_input_df[changed_input_df['problemId'].isin(result)==False]
+    
+    # Delete problems which 'isSolvable' is False
+    changed_input_df=changed_input_df[changed_input_df['isSolvable']==True]
+    
+    # Adjust the level of problem
+    changed_input_df=changed_input_df[(changed_input_df['level']<21) & (changed_input_df['level']>0)]
+    
+    #Delete problems which 'givesNoRating' is False
+    changed_input_df=changed_input_df[changed_input_df['givesNoRating']==False]
+    
+    # Delete 'tags' value
+    changed_input_df=changed_input_df[changed_input_df['tags']!='[]']
+    
+    print(changed_input_df.shape)
     return changed_input_df
 
 
@@ -71,22 +99,22 @@ def process_data(setting, logging):
     raw_data_folder = setting['path']['raw_data_folder_path']
 
     # Get path to data
-    user_data_file = os.path.join(raw_data_folder, setting['path']['user_data_file'])
+    #user_data_file = os.path.join(raw_data_folder, setting['path']['user_data_file'])
     item_data_file = os.path.join(raw_data_folder, setting['path']['item_data_file'])
-    inter_data_file = os.path.join(raw_data_folder, setting['path']['inter_data_file'])
+    #inter_data_file = os.path.join(raw_data_folder, setting['path']['inter_data_file'])
 
     logging.debug('Getting raw data from path')
 
     # Get data
-    user_df = pd.read_csv(user_data_file)
+    #user_df = pd.read_csv(user_data_file)
     item_df = pd.read_csv(item_data_file)
-    inter_df = pd.read_csv(inter_data_file)
+    #inter_df = pd.read_csv(inter_data_file)
 
     logging.debug('Processing user data')
 
     # Process each data seperatly
     # Process user data
-    processed_user_df = process_user_data(user_df)
+    #processed_user_df = process_user_data(user_df)
 
     logging.debug('Processing item data')
 
@@ -96,7 +124,7 @@ def process_data(setting, logging):
     logging.debug('Processing interaction data')
 
     # Process interaction data
-    processed_inter_df = process_inter_data(inter_df)
+    #processed_inter_df = process_inter_data(inter_df)
 
     logging.debug('Processing extra data')
 
@@ -111,13 +139,13 @@ def process_data(setting, logging):
     if not os.path.isdir(processed_data_folder):
         os.mkdir(processed_data_folder)
 
-    user_data_file = os.path.join(processed_data_folder, setting['path']['user_data_file'])
+    #user_data_file = os.path.join(processed_data_folder, setting['path']['user_data_file'])
     item_data_file = os.path.join(processed_data_folder, setting['path']['item_data_file'])
-    inter_data_file = os.path.join(processed_data_folder, setting['path']['inter_data_file'])
+    #inter_data_file = os.path.join(processed_data_folder, setting['path']['inter_data_file'])
 
-    processed_user_df.to_csv(user_data_file, index=False)
+    #processed_user_df.to_csv(user_data_file, index=False)
     processed_item_df.to_csv(item_data_file, index=False)
-    processed_inter_df.to_csv(inter_data_file, index=False)
+    #processed_inter_df.to_csv(inter_data_file, index=False)
 
     return
 
