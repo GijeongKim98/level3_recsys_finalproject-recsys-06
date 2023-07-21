@@ -1,0 +1,452 @@
+target : voronoi
+3
+target : linear_programming
+3
+target : dp_connection_profile
+3
+target : bayes
+3
+target : discrete_sqrt
+3
+target : discrete_kth_root
+3
+target : majority_vote
+3
+target : differential_cryptanalysis
+3
+target : centroid
+3
+target : circulation
+3
+target : tree_compression
+3
+target : generating_function
+3
+target : birthday
+3
+target : tree_decomposition
+3
+target : dp_sum_over_subsets
+3
+target : splay_tree
+3
+target : knuth
+3
+target : discrete_log
+3
+target : simulated_annealing
+3
+target : cartesian_tree
+3
+target : burnside
+3
+target : hungarian
+3
+target : mobius_inversion
+3
+target : geometry_hyper
+3
+target : slope_trick
+3
+target : min_enclosing_circle
+3
+target : dual_graph
+3
+target : utf8
+3
+target : gradient_descent
+2
+math
+3
+target : hall
+4
+target : pollard_rho
+3
+target : z
+3
+target : rope
+3
+target : degree_sequence
+3
+target : divide_and_conquer_optimization
+3
+target : berlekamp_massey
+4
+target : lucas
+3
+target : tree_isomorphism
+3
+target : pick
+3
+target : stable_marriage
+3
+target : miller_rabin
+3
+target : point_in_non_convex_polygon
+3
+target : numerical_analysis
+3
+target : bidirectional_search
+3
+target : pst
+3
+target : statistics
+3
+target : pbs
+3
+target : euler_characteristic
+3
+target : planar_graph
+3
+target : aho_corasick
+3
+target : cactus
+3
+target : rotating_calipers
+3
+target : multi_segtree
+3
+target : fft
+3
+target : hld
+4
+target : manacher
+3
+target : dp_deque
+3
+target : cht
+4
+target : merge_sort_tree
+3
+target : mo
+4
+target : biconnected_component
+3
+target : crt
+3
+target : rabin_karp
+3
+target : point_in_convex_polygon
+3
+target : sqrt_decomposition
+4
+target : euler_phi
+3
+target : linked_list
+3
+target : regex
+3
+target : extended_euclidean
+3
+target : mfmc
+4
+target : bipartite_graph
+3
+target : bellman_ford
+3
+target : smaller_to_larger
+4
+target : pigeonhole_principle
+4
+target : articulation
+3
+target : tsp
+4
+target : 2_sat
+3
+target : polygon_area
+3
+target : linearity_of_expectation
+3
+target : gaussian_elimination
+3
+target : heuristics
+4
+target : eulerian_path
+3
+target : euler_tour_technique
+3
+target : bitset
+4
+target : suffix_array
+3
+target : permutation_cycle_decomposition
+4
+target : 0_1_bfs
+3
+target : flt
+3
+target : mitm
+4
+target : physics
+4
+target : mcmf
+3
+target : queue
+4
+target : sprague_grundy
+3
+target : sparse_table
+3
+target : kmp
+3
+target : modular_multiplicative_inverse
+3
+target : lis
+2
+dp
+3
+target : hall(홀의 결혼 정리)
+2
+graphs
+3
+target : berlekamp_massey(벌리캠프–매시)
+2
+dp
+3
+target : hld(Heavy-light 분할)
+3
+target : cht(볼록 껍질을 이용한 최적화)
+2
+dp
+3
+target : mo(mo's)
+3
+target : sqrt_decomposition(제곱근 분할법)
+3
+target : mfmc(최대 유량 최소 컷 정리)
+3
+target : smaller_to_larger(작은 집합에서 큰 집합으로 합치는 테크닉)
+3
+target : pigeonhole_principle(비둘기집 원리)
+2
+math
+3
+target : tsp(외판원 순회 문제)
+2
+graphs
+dp
+bruteforcing
+3
+target : heuristics(휴리스틱)
+3
+target : bitset(비트 집합)
+3
+target : permutation_cycle_decomposition(순열 사이클 분할)
+2
+graphs
+math
+3
+target : mitm(중간에서 만나기)
+4
+target : mitm(중간에서 만나기)
+4
+target : physics(물리학)
+3
+target : queue(큐)
+4
+target : line_intersection(선분 교차 판정)
+3
+target : ternary_search(삼분 탐색)
+4
+target : geometry_3d(3차원 기하학)
+3
+target : calculus(미적분학)
+3
+target : pythagoras(피타고라스 정리)
+3
+target : convex_hull(볼록 껍질)
+3
+target : trie(트라이)
+3
+target : deque(덱)
+4
+target : sliding_window(슬라이딩 윈도우)
+3
+target : inclusion_and_exclusion(포함 배제의 원리)
+3
+target : randomization(무작위화)
+3
+target : linear_algebra(선형대수학)
+3
+target : scc(강한 연결 요소)
+3
+target : lca(최소 공통 조상)
+3
+target : hashing(해싱)
+4
+target : offline_queries(오프라인 쿼리)
+3
+target : lazyprop(느리게 갱신되는 세그먼트 트리)
+3
+target : precomputation(런타임 전의 전처리)
+3
+target : topological_sorting(위상 정렬)
+3
+target : bipartite_matching(이분 매칭)
+3
+target : mst(최소 스패닝 트리)
+3
+target : divide_and_conquer(분할 정복)
+4
+target : coordinate_compression(값 / 좌표 압축)
+3
+target : floyd_warshall(플로이드–워셜)
+3
+target : euclidean(유클리드 호제법)
+3
+target : sieve(에라토스테네스의 체)
+3
+target : exponentiation_by_squaring(분할 정복을 이용한 거듭제곱)
+2
+divide_and_conquer 
+3
+target : flow(최대 유량)
+4
+target : recursion(재귀)
+4
+target : knapsack(배낭 문제)
+2
+dp
+3
+target : arbitrary_precision(임의 정밀도 / 큰 수 연산)
+2
+math
+3
+target : dp_bitfield(비트필드를 이용한 다이나믹 프로그래밍)
+3
+target : probability(확률론)
+3
+target : dp_tree(트리에서의 다이나믹 프로그래밍)
+3
+target : game_theory(게임 이론)
+3
+target : parametric_search(매개 변수 탐색)
+4
+target : primality_test(소수 판정)
+3
+target : two_pointer(두 포인터)
+4
+target : priority_queue(우선순위 큐)
+4
+target : sweeping(스위핑)
+3
+target : stack(스택)
+4
+target : disjoint_set(분리 집합)
+4
+target : tree_set(트리를 사용한 집합과 맵)
+4
+target : parsing(파싱)
+3
+target : backtracking(백트래킹)
+2
+bruteforcing
+3
+target : dijkstra(데이크스트라)
+3
+target : hash_set(해시를 사용한 집합과 맵)
+2
+hashing
+3
+target : case_work(많은 조건 분기)
+3
+target : bitmask(비트마스킹)
+3
+target : segtree(세그먼트 트리)
+4
+target : combinatorics(조합론)
+3
+target : constructive(해 구성하기)
+4
+target : prefix_sum(누적 합)
+2
+dp
+3
+target : dfs(깊이 우선 탐색)
+4
+target : trees(트리)
+4
+target : ad_hoc(애드 혹)
+4
+target : binary_search(이분 탐색)
+4
+target : arithmetic(사칙연산)
+3
+target : bfs(너비 우선 탐색)
+4
+target : simulation(시뮬레이션)
+3
+target : geometry(기하학)
+2
+math
+3
+target : number_theory(정수론)
+3
+target : sorting(정렬)
+4
+target : graph_traversal(그래프 탐색)
+3
+target : greedy(그리디 알고리즘)
+4
+target : bruteforcing(브루트포스 알고리즘)
+4
+target : string(문자열)
+4
+target : data_structures(자료 구조)
+target : mitm(중간에서 만나기)
+4
+target : queue(큐)
+4
+target : deque(덱)
+4
+target : hashing(해싱)
+4
+target : divide_and_conquer(분할 정복)
+4
+target : flow(최대 유량)
+3
+target : recursion(재귀)
+4
+target : two_pointer(두 포인터)
+4
+target : priority_queue(우선순위 큐)
+4
+target : stack(스택)
+4
+target : disjoint_set(분리 집합)
+4
+target : tree_set(트리를 사용한 집합과 맵)
+4
+target : segtree(세그먼트 트리)
+4
+target : constructive(해 구성하기)
+3
+target : dfs(깊이 우선 탐색)
+4
+target : trees(트리)
+4
+target : ad_hoc(애드 혹)
+3
+target : binary_search(이분 탐색)
+4
+target : bfs(너비 우선 탐색)
+4
+target : sorting(정렬)
+4
+target : greedy(그리디 알고리즘)
+4
+target : bruteforcing(브루트포스 알고리즘)
+4
+target : string(문자열)
+4
+target : data_structures(자료 구조)
+3
+target : graphs(그래프 이론)
+4
+target : dp(다이나믹 프로그래밍)
+4
+target : implementation(구현)
+4
+target : math(수학)
+4

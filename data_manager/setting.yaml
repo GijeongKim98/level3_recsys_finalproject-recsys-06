@@ -11,6 +11,12 @@ path:
   user_data_file: user_data.csv
   item_data_file: problem_data.csv
   inter_data_file: interaction_data.csv
+  tag_data_file: tag_data.csv
+  problem_big_tag_file: problem_btag.csv
+  problem_middle_tag_file: problem_mtag.csv
+  user_rating_middle_file: user_rating_middle.csv
+  user_rating_big_flie: user_rating_big.csv
+  log_file: log.txt
 atomic_user_dict:
   userID: token
 atomic_item_dict:
