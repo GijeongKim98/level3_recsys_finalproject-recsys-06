@@ -16,6 +16,8 @@ class Trainer:
 
         self.logger = logger
 
+        self.model_hyperparams = setting[setting["model_name"].lower()]
+
         self.device = setting["device"]
 
         # Best
@@ -116,28 +118,32 @@ class Trainer:
             {
                 "epoch": epoch,
                 "best_auc": best_auc,
+                "model_hyperparams": self.model_hyperparams,
                 "model_state_dict": self.model.state_dict(),
             },
             path,
         )
 
 
-class Taster:
-    def __init__(self, setting, dataloader, data):
+class Tester:
+    def __init__(self, setting, model, dataloader, data):
         self.test_dataloader = dataloader["test"]
         self.submission_df = data["test"]
+        self.model = model
         self.device = setting["device"]
         self.save_path = setting["path"]["submission"]
         self.save_file_name = setting["file_name"]["submission"]
 
     def test(self):
-        total_preds = []
-        for edges, _ in self.test_dataloader:
-            edges = edges.T.to(self.device)
-            probs = self.model.predict_link(edge_index=edges, prob=True)
-            total_preds.append(probs.detach())
-        total_preds = torch.concat(total_preds).cpu().numpy()
-        self.submission_df["answer"] = total_preds
+        self.model.eval()
+        with torch.no_grad():
+            total_preds = []
+            for edges, _ in self.test_dataloader:
+                edges = edges.T.to(self.device)
+                probs = self.model.predict_link(edge_index=edges, prob=True)
+                total_preds.append(probs.detach())
+            total_preds = torch.concat(total_preds).cpu().numpy()
+            self.submission_df["answer"] = total_preds
 
     def save_submission(self):
         import os

@@ -33,6 +33,7 @@ def main():
     trainer = Trainer(setting, model, dataloader, logger)
     logger.info(f"Succes Initialize Trainer")
     logger.info(f"setting : {setting['lgcn'].items()}")
+    logger.info(f"setting : {setting['optim'].items()}")
 
     # Model Train
     logger.info(f"Strat Model Train")

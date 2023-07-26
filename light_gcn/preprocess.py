@@ -8,6 +8,7 @@ from utils.util import (
     load_split_data,
     load_problem_by_tag_data,
     save_idx2node,
+    create_ac_by_tier,
 )
 
 
@@ -46,6 +47,7 @@ def get_neg_samples(data: dict, setting: dict, logger) -> dict:
 
     negative_user_ids = []
     negative_problem_ids = []
+    answer_codes = []
 
     logging_count = 0
 
@@ -54,10 +56,11 @@ def get_neg_samples(data: dict, setting: dict, logger) -> dict:
     for idx in range(len(data["inter"])):
         if data["inter"].loc[idx]["user_id"] != data["inter"].loc[pre_idx]["user_id"]:
             user_inter_df = data["inter"].loc[pre_idx : idx - 1]
+            user_tier = user_tier_dict[user_inter_df.iloc[0]["user_id"]]
             user_negative_sample = negative_sampler(
                 user_inter_df,
                 problem_by_tag,
-                user_tier_dict,
+                user_tier,
                 setting["negative_sample_prob"],
                 setting["seed"],
                 setting["delta_tier"],
@@ -76,11 +79,22 @@ def get_neg_samples(data: dict, setting: dict, logger) -> dict:
                 logger.debug(
                     f"Negative Sampling {logging_count} / {count_of_user} Done"
                 )
+            ac_list = create_ac_by_tier(user_tier)
+            answer_code = list(
+                map(
+                    lambda x: ac_list[
+                        data["item"][data["item"]["problem_id"] == x]["level"].values[0]
+                        - 1
+                    ],
+                    list(user_negative_sample),
+                )
+            )
+            answer_codes.extend(answer_code)
 
     negative_inter_merge = pd.DataFrame()
     negative_inter_merge["user_id"] = negative_user_ids
     negative_inter_merge["problem_id"] = negative_problem_ids
-    negative_inter_merge["answer_code"] = [0] * len(negative_user_ids)
+    negative_inter_merge["answer_code"] = answer_codes
 
     problem_level_data = data["item"][["problem_id", "level"]]
     negative_inter_merge = pd.merge(
@@ -88,7 +102,7 @@ def get_neg_samples(data: dict, setting: dict, logger) -> dict:
     )
 
     negative_inter_merge.to_csv(
-        setting["path"]["neg_sample_path"] + "/neg_sample_ver2.csv", index=False
+        setting["path"]["neg_sample_path"] + "/neg_sample_ver3.csv", index=False
     )
 
     return negative_inter_merge

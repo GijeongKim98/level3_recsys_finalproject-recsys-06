@@ -31,8 +31,10 @@ def load_model(setting: dict, num_nodes, logger, is_train: bool = True) -> nn.Mo
     if not is_train:
         model_path = get_model_path(setting)
         model_dict = torch.load(model_path)
-        logger.info(f"Load Model : {model_name}, best_auc: {model_dict['best_auc']} ")
-        model.load_state_dict(model_dict["model_state_dict"].to(setting["device"]))
+        logger.info(
+            f"Load Model : {model_name}, best_auc: {model_dict['best_auc']:.3f} "
+        )
+        model.load_state_dict(model_dict["model_state_dict"])
 
     return model.to(setting["device"])
 
@@ -42,5 +44,5 @@ def get_model_path(setting):
     import os
 
     return os.path.join(
-        setting["path"]["save_model"], setting["file_name"]["save_model"]
+        setting["path"]["save_model"], setting["file_name"]["saved_model"]
     )

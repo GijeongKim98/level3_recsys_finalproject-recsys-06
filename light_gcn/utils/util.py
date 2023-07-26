@@ -28,7 +28,6 @@ def init():
     setting_path = os.path.join(os.getcwd(), "utils/setting.yaml")
     setting = load_setting(setting_path)
     data = load_data(setting["path"]["data_path"], setting["file_name"])
-    logger = get_logger(logging_conf)
 
     setting["now_time"] = datetime.now().strftime("%Y%m%d_%H%M%S")
     if setting["is_train"]:
@@ -38,7 +37,15 @@ def init():
 
         setting["file_name"]["idx2node"] = "idx2node_" + setting["now_time"] + ".pickle"
 
+        setting["file_name"]["submission"] = (
+            setting["model_name"] + setting["now_time"] + ".csv"
+        )
+
     setting["device"] = "cuda" if torch.cuda.is_available() else "cpu"
+
+    # Logger Config
+    logging_conf = load_log_config(setting["now_time"])
+    logger = get_logger(logging_conf)
 
     seed = setting["seed"]
     # All results will be fixed
@@ -52,27 +59,29 @@ def init():
     return setting, data, logger
 
 
-logging_conf = {  # only used when 'user_wandb==False'
-    "version": 1,
-    "formatters": {  # formatters => Basic 사용
-        "basic": {"format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"}
-    },  # 로그 작성 시간, 작성 이름, 레벨(Info, Debug 등), 로그메세지
-    "handlers": {  # 로그 출력 방식
-        "console": {  # 터미널
-            "class": "logging.StreamHandler",
-            "level": "DEBUG",
-            "formatter": "basic",
-            "stream": "ext://sys.stdout",
+def load_log_config(file_name):
+    logging_conf = {  # only used when 'user_wandb==False'
+        "version": 1,
+        "formatters": {  # formatters => Basic 사용
+            "basic": {"format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"}
+        },  # 로그 작성 시간, 작성 이름, 레벨(Info, Debug 등), 로그메세지
+        "handlers": {  # 로그 출력 방식
+            "console": {  # 터미널
+                "class": "logging.StreamHandler",
+                "level": "DEBUG",
+                "formatter": "basic",
+                "stream": "ext://sys.stdout",
+            },
+            "file_handler": {  # 파일
+                "class": "logging.FileHandler",
+                "level": "DEBUG",
+                "formatter": "basic",
+                "filename": f"logs/{file_name}.log",
+            },
         },
-        "file_handler": {  # 파일
-            "class": "logging.FileHandler",
-            "level": "DEBUG",
-            "formatter": "basic",
-            "filename": "logs/run4.log",
-        },
-    },
-    "root": {"level": "DEBUG", "handlers": ["console", "file_handler"]},
-}
+        "root": {"level": "DEBUG", "handlers": ["console", "file_handler"]},
+    }
+    return logging_conf
 
 
 def get_logger(logger_conf: dict):
@@ -134,7 +143,7 @@ MAX_LEVEL = 20
 def negative_sampler(
     data_inter_by_uid,
     problem_by_tag,
-    user_tier_dict,
+    user_tier,
     negative_sample_prob=0.5,
     seed=42,
     d_tier=3,
@@ -157,10 +166,10 @@ def negative_sampler(
     tag_solved_not_probs = list(map(lambda x: x / sum_, tag_solved_not_probs))
 
     union_set = set()
-    min_tier = user_tier_dict[data_inter_by_uid.iloc[0]["user_id"]] - d_tier
+    min_tier = (((user_tier - 1) // 5) - 1) * 5 + 1
 
     for idx, (tag_name, problem_level_dict) in enumerate(problem_by_tag.items()):
-        lowest_level = 15 if min_tier > 15 else (1 if min_tier <= 0 else min_tier)
+        lowest_level = 16 if min_tier > 15 else (1 if min_tier <= 0 else min_tier)
         problem_above_lowest_level = eval(problem_level_dict[str(MAX_LEVEL)]) - eval(
             problem_level_dict[str(lowest_level)]
         )
@@ -207,11 +216,25 @@ def load_negative_sample_data(path, file_name):
 
 
 def load_split_data(path):
-    train_df = pd.read_csv(os.path.join(path, "train_df.csv"))
-    valid_df = pd.read_csv(os.path.join(path, "valid_df.csv"))
+    train_df = pd.read_csv(os.path.join(path, "train_df_v2_8.csv"))
+    valid_df = pd.read_csv(os.path.join(path, "valid_df_v2_8.csv"))
     return train_df, valid_df
 
 
 def save_idx2node(idx2node: dict, path, file_name):
+    return
     with open(os.path.join(path, file_name), "wb") as fw:
         pickle.dump(idx2node, fw)
+
+
+def create_ac_by_tier(user_tier):
+    list_ = [0.6] * 5 + [0.3] * 5
+    low_level = (user_tier - 1) // 5
+    if low_level == 0:
+        return list_[5:] + [0] * 15
+    elif low_level == 1:
+        return list_ + [0] * 10
+    elif low_level == 2:
+        return [0] * 5 + list_ + [0] * 5
+    else:
+        return [0] * 10 + list_
