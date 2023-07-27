@@ -149,6 +149,31 @@ def create_tables(cursor):
             );
         """
     )
+    
+    cursor.execute(
+        """
+            create table company_rating(
+                company_id VARCHAR(10) primary key,
+                basics double, bruteforce double, datastructure double, dp double,
+                graph double, greedy double, hash double, math double,
+                recursion double, search double, tree double
+            );
+        """
+    )
+    
+    cursor.execute(
+        """
+            create table company_middle_rating(
+                company_id VARCHAR(10) primary key,
+                implementation double, greedy double, math double, stack double, string double,
+                parametric_search double, bfs double, dp double, tree_set double, bruteforcing double,
+                binary_search double, disjoint_set double, ternary_search double, two_pointer double,
+                deque double, segtree double, graphs double, divide_and_conquer double,
+                priority_queue double, queue double, hashing double, trees double, dfs double,
+                mitm double, sorting double, recursion double
+            );
+        """
+    )
 
     
 def insert_data(cursor, file_name, table_name, setting):
@@ -169,6 +194,8 @@ def insert_data(cursor, file_name, table_name, setting):
         temp_df.drop('joined_date', axis=1, inplace=True)
 
     temp_iter = len(temp_df) // 1000
+    if temp_iter == 0:
+        temp_iter = 1
     
     for i in range(len(temp_df)):
         values = str(list(temp_df.iloc[i]))[1:-1]

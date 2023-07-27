@@ -13,7 +13,9 @@ insert_file_list: [
     'problem_mtag_ver1.csv',
     'user_ver7.csv',
     'user_rating_big_ver1.csv',
-    'user_rating_middle_ver1.csv'
+    'user_rating_middle_ver1.csv',
+    'corporation_rating_big_ver1.csv',
+    'corporation_rating_middle_ver1.csv'
 ]
 
 insert_table_name: [
@@ -22,9 +24,11 @@ insert_table_name: [
     'problem_mtag',
     'user',
     'user_rating_big',
-    'user_rating_middle'
+    'user_rating_middle',
+    'company_rating',
+    'company_middle_rating'
 ]
 
 # Extra settings
-create_db: True
-create_table: True
+create_db: False
+create_table: False
