@@ -15,7 +15,8 @@ insert_file_list: [
     'user_rating_big_ver1.csv',
     'user_rating_middle_ver1.csv',
     'corporation_rating_big_ver1.csv',
-    'corporation_rating_middle_ver1.csv'
+    'corporation_rating_middle_ver1.csv',
+    'github_repo_change_labels.csv'
 ]
 
 insert_table_name: [
@@ -26,7 +27,8 @@ insert_table_name: [
     'user_rating_big',
     'user_rating_middle',
     'company_rating',
-    'company_middle_rating'
+    'company_middle_rating',
+    'github_repo'
 ]
 
 # Extra settings

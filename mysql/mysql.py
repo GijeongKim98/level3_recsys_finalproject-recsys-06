@@ -174,7 +174,31 @@ def create_tables(cursor):
             );
         """
     )
+    
+    
+    cursor.execute(
+        """
+            create table github_repo(
+                title VARCHAR(100) primary key,
+                tags VARCHAR(1000),
+                about VARCHAR(500),
+                readme VARCHAR(1300),
+                lang VARCHAR(20),
+                tsne_text_x double,
+                tsne_text_y double,
+                label_28 VARCHAR(20)
+            );
+        """
+    )
 
+def get_length(input_list):
+    total_len = ''
+    for i in input_list:
+        if i == ' ':
+            total_len += ','
+        else:
+            total_len += i
+    return total_len[:-1]
     
 def insert_data(cursor, file_name, table_name, setting):
     '''
@@ -193,6 +217,12 @@ def insert_data(cursor, file_name, table_name, setting):
     if 'joined_date' in temp_df.columns:
         temp_df.drop('joined_date', axis=1, inplace=True)
 
+    if file_name == 'github_repo_change_labels.csv':   
+        temp_df['tags'] = temp_df['tags'].apply(get_length)
+        temp_df['lang'] = temp_df['lang'].apply(lambda x: '' if type(x) == float else x)
+        temp_df['readme'] = temp_df['readme'].apply(lambda x: '' if type(x) == float else x)
+        temp_df['about'] = temp_df['about'].apply(lambda x: '' if type(x) == float else x)
+        
     temp_iter = len(temp_df) // 1000
     if temp_iter == 0:
         temp_iter = 1
