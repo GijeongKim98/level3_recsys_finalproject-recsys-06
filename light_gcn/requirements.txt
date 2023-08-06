@@ -1,0 +1,5 @@
+pandas
+numpy
+sklearn
+torch==1.13.0
+torch_geometric

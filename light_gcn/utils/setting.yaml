@@ -1,0 +1,56 @@
+
+path: {
+    data_path: "/opt/ml/lv3_project/level3_recsys_finalproject-recsys-06/train/data",
+    neg_sample_path: "/opt/ml/lv3_project/level3_recsys_finalproject-recsys-06/train/data",
+    save_model: "/opt/ml/lv3_project/level3_recsys_finalproject-recsys-06/train/model/save_model",
+    idx2node: "/opt/ml/lv3_project/level3_recsys_finalproject-recsys-06/train/data"
+}
+
+file_name: {
+    tag_level : tag_level.json,
+    neg_sample : neg_sample_ver2.csv,
+    interaction : interaction_v2.csv,
+    user : user.csv,
+    item : item.csv
+}
+
+seed: 42
+
+# Negative sampling
+negative_sample_prob: 0.3
+
+negative_sample_exist: true
+
+delta_tier: 3
+
+# Train_Valid Split
+train_valid_prob: 0.9
+
+train_valid_data_exist: true
+
+
+# Model
+is_train: true
+
+model_name: "lgcn"
+
+batch_size: 1024
+
+
+lgcn: {
+    embedding_dim: 128,
+    num_layers: 2,
+    alpha: 0
+}
+
+# Train config
+optim: {
+    name: "adam",
+    learning_rate: 0.000005,
+    weight_decay: 0
+}
+loss_fn: "bceloss"
+epoch: 100
+
+
+
