@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/codingtest.css" />
+    <script type="text/javascript" src="js/codingtest.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <title>Coding Test</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="app_side_bar">
+        <div class = "app_side_bar_header">
+          <div class="app_side_bar_logo">JobCoder</div>
+        </div>
+        <div class = "app_side_bar_contents">
+          <div class = "app_side_bar_item" id="home" onclick="move_page('home')">
+            <div class = "app_side_bar_icon"></div>
+            <div class = "app_side_bar_txt">홈 화면</div>
+          </div>
+          <div class = "app_side_bar_item" id="stat" onclick="move_page('stat')">
+            <div class = "app_side_bar_icon"></div>
+            <div class = "app_side_bar_txt">나의 성취도</div>
+          </div>
+          <div class = "app_side_bar_item" id="company" onclick="move_page('company')">
+            <div class = "app_side_bar_icon"></div>
+            <div class = "app_side_bar_txt">목표 기업</div>
+          </div>
+          <div class = "app_side_bar_item" id="codingtest" onclick="move_page('codingtest')">
+            <div class = "app_side_bar_icon"></div>
+            <div class = "app_side_bar_txt">코딩 테스트</div>
+          </div>
+          <div class = "app_side_bar_item" id="project" onclick="move_page('project')">
+            <div class = "app_side_bar_icon"></div>
+            <div class = "app_side_bar_txt">프로젝트</div>
+          </div>
+          <!-- <div class = "app_side_bar_item" id="settings">
+            <div class = "app_side_bar_icon"></div>
+            <div class = "app_side_bar_txt">환경설정</div>
+          </div> -->
+          <div class = 'app_side_bar_item' id="logout" onclick="move_page('main')">
+            <div class = "app_side_bar_icon"></div>
+            <div class = "app_side_bar_txt">나가기</div>
+          </div>
+        </div>
+      </div>
+      <div class="app_main">
+        <div class="app_header">
+          <div class="app_header_contents">
+            <div class="app_header_title"><h2>코딩 테스트</h2></div>
+              <!-- <div class="app_header_profile_refresh_btn">
+                <div class="app_header_profile_refresh_btn_icon"></div>
+                <div class="app_header_profile_refresh_btn_txt">성적 갱신</div>
+              </div> -->
+          </div>
+        </div>
+        <div class="app_contents">
+          <div class="app_card_container test_card">
+            <div class="app_card_title"><h3>
+              &#x1F680; 실력 상승 문제</h3></div>
+            <div class="app_card">
+              <div class="app_card_table">
+                <div class="app_card_table_title">
+                  <div class="table_title_problem_id">번호</div>
+                  <div class="table_title_problem_title">제목</div>
+                  <div class="table_title_problem_tag">태그</div>
+                </div>
+                <div class="app_card_table_item item_problem">
+                  <div class="item_text">1009</div>
+                  <div class="item_text">분산처리</div>
+                  <div class="item_tags">
+                    <div class="item_tag">recursion</div>
+                    <div class="item_tag">math</div>
+                  </div>
+                </div>
+                <div class="app_card_table_item item_problem">
+                  <div class="item_text">1306</div>
+                  <div class="item_text">달려라 홍준</div>
+                  <div class="item_tags">
+                    <div class="item_tag">data structure</div>
+                    <div class="item_tag">tree</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="app_card_container test_card">
+            <div class="app_card_title"><h3>
+              &#9749; 복습 문제 </h3></div>
+            <div class="app_card">
+              <div class="app_card_table">
+                <div class="app_card_table_title">
+                  <div class="table_title_problem_id">번호</div>
+                  <div class="table_title_problem_title">제목</div>
+                  <div class="table_title_problem_tag">태그</div>
+                </div>
+                <div class="app_card_table_item item_problem">
+                  <div class="item_text">1009</div>
+                  <div class="item_text">분산처리</div>
+                  <div class="item_tags">
+                    <div class="item_tag">recursion</div>
+                    <div class="item_tag">math</div>
+                  </div>
+                </div>
+                <div class="app_card_table_item item_problem">
+                  <div class="item_text">1306</div>
+                  <div class="item_text">달려라 홍준</div>
+                  <div class="item_tags">
+                    <div class="item_tag">data structure</div>
+                    <div class="item_tag">tree</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="app_card_container test_card">
+            <div class="app_card_title"><h3>
+              &#128293; 도전 문제</h3></div>
+            <div class="app_card">
+              <div class="app_card_table">
+                <div class="app_card_table_title">
+                  <div class="table_title_problem_id">번호</div>
+                  <div class="table_title_problem_title">제목</div>
+                  <div class="table_title_problem_tag">태그</div>
+                </div>
+                <div class="app_card_table_item item_problem">
+                  <div class="item_text">1009</div>
+                  <div class="item_text">분산처리</div>
+                  <div class="item_tags">
+                    <div class="item_tag">recursion</div>
+                    <div class="item_tag">math</div>
+                  </div>
+                </div>
+                <div class="app_card_table_item item_problem">
+                  <div class="item_text">1306</div>
+                  <div class="item_text">달려라 홍준</div>
+                  <div class="item_tags">
+                    <div class="item_tag">data structure</div>
+                    <div class="item_tag">tree</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

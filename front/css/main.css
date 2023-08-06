@@ -1,0 +1,131 @@
+@import url(color.css);
+@import url(font.css);
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background-color: var(--navy);
+    width: 100vw;
+    height:100vh;
+    margin: 0px;
+    /* font-family: 'GmarketSansMedium'; */
+}
+
+.app {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app_header {
+    padding: 64px 32px 0px 32px;
+}
+
+.app_logo {
+    display: flex;
+    height: 52px;
+    align-items : center;
+}
+
+.app_logo_txt {
+    font-family: "KBO-Dia-Gothic_bold";
+    font-size: 36px;
+    color: var(--green);
+    margin: 0px 16px;
+}
+
+.app_page {
+    height: 100%;
+    width: 66vw;
+    margin: auto;
+}
+
+.login_contents {
+    position: relative;
+    margin: auto;
+    padding: calc(45vh - 128px - 32px) 20px;
+}
+
+.login_text {
+    color: var(--white);
+    text-align: center;
+}
+
+.login_text > h2 {
+    font-size: 56px;
+    font-weight: 800;
+    margin: 0px;
+    margin-bottom: 0px;
+    /* font-family: 'Tenada'; */
+    font-weight: 800;
+}
+
+.login_text > h3 {
+    margin: 0px;
+    margin-top: 16px;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.login_interface {
+    position: relative;
+    width: 512px;
+    height: 48px;
+    margin: 64px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#login_input {
+    outline: none;
+    border: none;
+    width: 440px;
+    height: 100%;
+    padding: 2px 56px 2px 16px;
+    border-radius: 4px;
+    background-color: var(--white);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-style: var(--black);
+    font-size: 16px;
+    caret-color: var(--black);
+}
+
+#login_btn {
+    position:absolute;
+    width: 56px;
+    height: 52px;
+    right: -1px;
+    top: 0px;
+    background-color: var(--green);
+    border-radius: 0 4px 4px 0;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-image: url("../img/arrow_right.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#login_btn:hover {
+    cursor: pointer;
+}
+
+#login_btn:active {
+    background-color: var(--darker-green);
+}
+
+.hero-image {
+    background-image: linear-gradient(#000e2aaa, #000e2aaa), url("../img/keyboard.jpg");
+
+    height: 100%;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}

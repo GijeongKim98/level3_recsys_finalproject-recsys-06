@@ -1,0 +1,509 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'svg-render' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData svg-render
+8 silly fetchNamedPackageData svg-render
+9 silly mapToRegistry name svg-render
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/svg-render
+13 verbose request uri https://registry.npmjs.org/svg-render
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 12:59:56 PM
+16 verbose request id 99505bba676c95a0
+17 http request GET https://registry.npmjs.org/svg-render
+18 http 200 https://registry.npmjs.org/svg-render
+19 verbose headers { date: 'Sun, 06 Aug 2023 12:59:57 GMT',
+19 verbose headers   'content-type': 'application/json',
+19 verbose headers   'transfer-encoding': 'chunked',
+19 verbose headers   connection: 'keep-alive',
+19 verbose headers   'cf-ray': '7f2775c01cabed99-ICN',
+19 verbose headers   'cf-cache-status': 'MISS',
+19 verbose headers   'access-control-allow-origin': '*',
+19 verbose headers   'cache-control': 'public, max-age=300',
+19 verbose headers   etag: 'W/"cb0e2e271af5eee8e43d130b793bb8f1"',
+19 verbose headers   'last-modified': 'Mon, 26 Jun 2023 22:54:20 GMT',
+19 verbose headers   vary: 'accept-encoding, accept',
+19 verbose headers   'x-amz-replication-status': 'FAILED',
+19 verbose headers   'x-amz-server-side-encryption': 'AES256',
+19 verbose headers   server: 'cloudflare',
+19 verbose headers   'content-encoding': 'gzip' }
+20 silly get cb [ 200,
+20 silly get   { date: 'Sun, 06 Aug 2023 12:59:57 GMT',
+20 silly get     'content-type': 'application/json',
+20 silly get     'transfer-encoding': 'chunked',
+20 silly get     connection: 'keep-alive',
+20 silly get     'cf-ray': '7f2775c01cabed99-ICN',
+20 silly get     'cf-cache-status': 'MISS',
+20 silly get     'access-control-allow-origin': '*',
+20 silly get     'cache-control': 'public, max-age=300',
+20 silly get     etag: 'W/"cb0e2e271af5eee8e43d130b793bb8f1"',
+20 silly get     'last-modified': 'Mon, 26 Jun 2023 22:54:20 GMT',
+20 silly get     vary: 'accept-encoding, accept',
+20 silly get     'x-amz-replication-status': 'FAILED',
+20 silly get     'x-amz-server-side-encryption': 'AES256',
+20 silly get     server: 'cloudflare',
+20 silly get     'content-encoding': 'gzip' } ]
+21 verbose get saving svg-render to /opt/ml/.npm/registry.npmjs.org/svg-render/.cache.json
+22 silly install normalizeTree
+23 silly loadCurrentTree Finishing
+24 silly loadIdealTree Starting
+25 silly install loadIdealTree
+26 silly cloneCurrentTree Starting
+27 silly install cloneCurrentTreeToIdealTree
+28 silly cloneCurrentTree Finishing
+29 silly loadShrinkwrap Starting
+30 silly install loadShrinkwrap
+31 silly loadShrinkwrap Finishing
+32 silly loadAllDepsIntoIdealTree Starting
+33 silly install loadAllDepsIntoIdealTree
+34 silly resolveWithNewModule svg-render@1.3.0 checking installable status
+35 silly cache add args [ 'svg-render', null ]
+36 verbose cache add spec svg-render
+37 silly cache add parsed spec Result {
+37 silly cache add   raw: 'svg-render',
+37 silly cache add   scope: null,
+37 silly cache add   name: 'svg-render',
+37 silly cache add   rawSpec: '',
+37 silly cache add   spec: 'latest',
+37 silly cache add   type: 'tag' }
+38 silly addNamed svg-render@latest
+39 verbose addNamed "latest" is being treated as a dist-tag for svg-render
+40 info addNameTag [ 'svg-render', 'latest' ]
+41 silly mapToRegistry name svg-render
+42 silly mapToRegistry using default registry
+43 silly mapToRegistry registry https://registry.npmjs.org/
+44 silly mapToRegistry uri https://registry.npmjs.org/svg-render
+45 verbose addNameTag registry:https://registry.npmjs.org/svg-render not in flight; fetching
+46 verbose get https://registry.npmjs.org/svg-render not expired, no request
+47 silly addNameTag next cb for svg-render with tag latest
+48 silly addNamed svg-render@1.3.0
+49 verbose addNamed "1.3.0" is a plain semver version for svg-render
+50 silly mapToRegistry name svg-render
+51 silly mapToRegistry using default registry
+52 silly mapToRegistry registry https://registry.npmjs.org/
+53 silly mapToRegistry uri https://registry.npmjs.org/svg-render
+54 verbose addRemoteTarball https://registry.npmjs.org/svg-render/-/svg-render-1.3.0.tgz not in flight; adding
+55 verbose addRemoteTarball [ 'https://registry.npmjs.org/svg-render/-/svg-render-1.3.0.tgz',
+55 verbose addRemoteTarball   '25e18a40b1322ba722908d8e16f73942b431813e' ]
+56 info retry fetch attempt 1 at 12:59:57 PM
+57 info attempt registry request try #1 at 12:59:57 PM
+58 http fetch GET https://registry.npmjs.org/svg-render/-/svg-render-1.3.0.tgz
+59 http fetch 200 https://registry.npmjs.org/svg-render/-/svg-render-1.3.0.tgz
+60 silly fetchAndShaCheck shasum 25e18a40b1322ba722908d8e16f73942b431813e
+61 verbose addTmpTarball /tmp/npm-14168-d202d1f9/registry.npmjs.org/svg-render/-/svg-render-1.3.0.tgz not in flight; adding
+62 verbose addTmpTarball already have metadata; skipping unpack for svg-render@1.3.0
+63 silly cache afterAdd svg-render@1.3.0
+64 verbose afterAdd /opt/ml/.npm/svg-render/1.3.0/package/package.json not in flight; writing
+65 verbose afterAdd /opt/ml/.npm/svg-render/1.3.0/package/package.json written
+66 silly fetchNamedPackageData canvas
+67 silly mapToRegistry name canvas
+68 silly mapToRegistry using default registry
+69 silly mapToRegistry registry https://registry.npmjs.org/
+70 silly mapToRegistry uri https://registry.npmjs.org/canvas
+71 silly fetchNamedPackageData cheerio
+72 silly mapToRegistry name cheerio
+73 silly mapToRegistry using default registry
+74 silly mapToRegistry registry https://registry.npmjs.org/
+75 silly mapToRegistry uri https://registry.npmjs.org/cheerio
+76 silly fetchNamedPackageData getopts
+77 silly mapToRegistry name getopts
+78 silly mapToRegistry using default registry
+79 silly mapToRegistry registry https://registry.npmjs.org/
+80 silly mapToRegistry uri https://registry.npmjs.org/getopts
+81 verbose request uri https://registry.npmjs.org/canvas
+82 verbose request no auth needed
+83 info attempt registry request try #1 at 12:59:58 PM
+84 http request GET https://registry.npmjs.org/canvas
+85 verbose request uri https://registry.npmjs.org/cheerio
+86 verbose request no auth needed
+87 info attempt registry request try #1 at 12:59:58 PM
+88 http request GET https://registry.npmjs.org/cheerio
+89 verbose request uri https://registry.npmjs.org/getopts
+90 verbose request no auth needed
+91 info attempt registry request try #1 at 12:59:58 PM
+92 http request GET https://registry.npmjs.org/getopts
+93 http 200 https://registry.npmjs.org/canvas
+94 verbose headers { date: 'Sun, 06 Aug 2023 12:59:58 GMT',
+94 verbose headers   'content-type': 'application/json',
+94 verbose headers   'transfer-encoding': 'chunked',
+94 verbose headers   connection: 'keep-alive',
+94 verbose headers   'cf-ray': '7f2775c89dd4ed99-ICN',
+94 verbose headers   'cf-cache-status': 'REVALIDATED',
+94 verbose headers   'access-control-allow-origin': '*',
+94 verbose headers   'cache-control': 'public, max-age=300',
+94 verbose headers   etag: 'W/"2ce872733248e0d9651decdc099f07e0"',
+94 verbose headers   'last-modified': 'Sun, 02 Apr 2023 21:37:35 GMT',
+94 verbose headers   vary: 'accept-encoding, accept',
+94 verbose headers   'x-amz-replication-status': 'COMPLETED',
+94 verbose headers   'x-amz-server-side-encryption': 'AES256',
+94 verbose headers   server: 'cloudflare',
+94 verbose headers   'content-encoding': 'gzip' }
+95 silly get cb [ 200,
+95 silly get   { date: 'Sun, 06 Aug 2023 12:59:58 GMT',
+95 silly get     'content-type': 'application/json',
+95 silly get     'transfer-encoding': 'chunked',
+95 silly get     connection: 'keep-alive',
+95 silly get     'cf-ray': '7f2775c89dd4ed99-ICN',
+95 silly get     'cf-cache-status': 'REVALIDATED',
+95 silly get     'access-control-allow-origin': '*',
+95 silly get     'cache-control': 'public, max-age=300',
+95 silly get     etag: 'W/"2ce872733248e0d9651decdc099f07e0"',
+95 silly get     'last-modified': 'Sun, 02 Apr 2023 21:37:35 GMT',
+95 silly get     vary: 'accept-encoding, accept',
+95 silly get     'x-amz-replication-status': 'COMPLETED',
+95 silly get     'x-amz-server-side-encryption': 'AES256',
+95 silly get     server: 'cloudflare',
+95 silly get     'content-encoding': 'gzip' } ]
+96 verbose get saving canvas to /opt/ml/.npm/registry.npmjs.org/canvas/.cache.json
+97 silly resolveWithNewModule canvas@2.11.2 checking installable status
+98 silly cache add args [ 'canvas@^2.8.0', null ]
+99 verbose cache add spec canvas@^2.8.0
+100 silly cache add parsed spec Result {
+100 silly cache add   raw: 'canvas@^2.8.0',
+100 silly cache add   scope: null,
+100 silly cache add   name: 'canvas',
+100 silly cache add   rawSpec: '^2.8.0',
+100 silly cache add   spec: '>=2.8.0 <3.0.0',
+100 silly cache add   type: 'range' }
+101 silly addNamed canvas@>=2.8.0 <3.0.0
+102 verbose addNamed ">=2.8.0 <3.0.0" is a valid semver range for canvas
+103 silly addNameRange { name: 'canvas', range: '>=2.8.0 <3.0.0', hasData: false }
+104 silly mapToRegistry name canvas
+105 silly mapToRegistry using default registry
+106 silly mapToRegistry registry https://registry.npmjs.org/
+107 silly mapToRegistry uri https://registry.npmjs.org/canvas
+108 verbose addNameRange registry:https://registry.npmjs.org/canvas not in flight; fetching
+109 http 200 https://registry.npmjs.org/cheerio
+110 verbose headers { date: 'Sun, 06 Aug 2023 12:59:58 GMT',
+110 verbose headers   'content-type': 'application/json',
+110 verbose headers   'transfer-encoding': 'chunked',
+110 verbose headers   connection: 'keep-alive',
+110 verbose headers   'cf-ray': '7f2775c8996a9343-ICN',
+110 verbose headers   'cf-cache-status': 'REVALIDATED',
+110 verbose headers   'access-control-allow-origin': '*',
+110 verbose headers   'cache-control': 'public, max-age=300',
+110 verbose headers   etag: 'W/"d971864c53db3aab6efffafac35f9e2b"',
+110 verbose headers   'last-modified': 'Tue, 04 Apr 2023 01:38:32 GMT',
+110 verbose headers   vary: 'accept-encoding, accept',
+110 verbose headers   'x-amz-replication-status': 'COMPLETED',
+110 verbose headers   'x-amz-server-side-encryption': 'AES256',
+110 verbose headers   server: 'cloudflare',
+110 verbose headers   'content-encoding': 'gzip' }
+111 silly get cb [ 200,
+111 silly get   { date: 'Sun, 06 Aug 2023 12:59:58 GMT',
+111 silly get     'content-type': 'application/json',
+111 silly get     'transfer-encoding': 'chunked',
+111 silly get     connection: 'keep-alive',
+111 silly get     'cf-ray': '7f2775c8996a9343-ICN',
+111 silly get     'cf-cache-status': 'REVALIDATED',
+111 silly get     'access-control-allow-origin': '*',
+111 silly get     'cache-control': 'public, max-age=300',
+111 silly get     etag: 'W/"d971864c53db3aab6efffafac35f9e2b"',
+111 silly get     'last-modified': 'Tue, 04 Apr 2023 01:38:32 GMT',
+111 silly get     vary: 'accept-encoding, accept',
+111 silly get     'x-amz-replication-status': 'COMPLETED',
+111 silly get     'x-amz-server-side-encryption': 'AES256',
+111 silly get     server: 'cloudflare',
+111 silly get     'content-encoding': 'gzip' } ]
+112 verbose get saving cheerio to /opt/ml/.npm/registry.npmjs.org/cheerio/.cache.json
+113 verbose get https://registry.npmjs.org/canvas not expired, no request
+114 silly addNameRange number 2 { name: 'canvas', range: '>=2.8.0 <3.0.0', hasData: true }
+115 silly addNameRange versions [ 'canvas',
+115 silly addNameRange   [ '0.0.1',
+115 silly addNameRange     '0.0.2',
+115 silly addNameRange     '0.0.3',
+115 silly addNameRange     '0.0.4',
+115 silly addNameRange     '0.0.5',
+115 silly addNameRange     '0.0.6',
+115 silly addNameRange     '0.0.7',
+115 silly addNameRange     '0.0.8',
+115 silly addNameRange     '0.1.0',
+115 silly addNameRange     '0.2.0',
+115 silly addNameRange     '0.2.1',
+115 silly addNameRange     '0.3.0',
+115 silly addNameRange     '0.3.1',
+115 silly addNameRange     '0.3.2',
+115 silly addNameRange     '0.3.3',
+115 silly addNameRange     '0.4.0',
+115 silly addNameRange     '0.4.1',
+115 silly addNameRange     '0.4.2',
+115 silly addNameRange     '0.4.3',
+115 silly addNameRange     '0.5.0',
+115 silly addNameRange     '0.5.1',
+115 silly addNameRange     '0.5.2',
+115 silly addNameRange     '0.5.3',
+115 silly addNameRange     '0.5.4',
+115 silly addNameRange     '0.6.0',
+115 silly addNameRange     '0.7.0',
+115 silly addNameRange     '0.7.1',
+115 silly addNameRange     '0.7.2',
+115 silly addNameRange     '0.7.3',
+115 silly addNameRange     '0.8.0',
+115 silly addNameRange     '0.8.1',
+115 silly addNameRange     '0.8.2',
+115 silly addNameRange     '0.8.3',
+115 silly addNameRange     '0.9.0',
+115 silly addNameRange     '0.10.0',
+115 silly addNameRange     '0.10.1',
+115 silly addNameRange     '0.10.2',
+115 silly addNameRange     '0.10.3',
+115 silly addNameRange     '0.11.0',
+115 silly addNameRange     '0.11.1',
+115 silly addNameRange     '0.11.2',
+115 silly addNameRange     '0.11.3',
+115 silly addNameRange     '0.12.0',
+115 silly addNameRange     '0.12.1',
+115 silly addNameRange     '0.13.0',
+115 silly addNameRange     '0.13.1',
+115 silly addNameRange     '1.0.0',
+115 silly addNameRange     '1.0.1',
+115 silly addNameRange     '1.0.2',
+115 silly addNameRange     '1.0.3',
+115 silly addNameRange     '1.0.4',
+115 silly addNameRange     '1.1.0',
+115 silly addNameRange     '1.1.1',
+115 silly addNameRange     '1.1.2',
+115 silly addNameRange     '1.1.3',
+115 silly addNameRange     '1.1.4',
+115 silly addNameRange     '1.1.5',
+115 silly addNameRange     '1.1.6',
+115 silly addNameRange     '1.2.0',
+115 silly addNameRange     '1.2.1',
+115 silly addNameRange     '1.2.2',
+115 silly addNameRange     '1.2.3',
+115 silly addNameRange     '1.2.4',
+115 silly addNameRange     '1.2.5',
+115 silly addNameRange     '1.2.6',
+115 silly addNameRange     '1.2.7',
+115 silly addNameRange     '1.2.8',
+115 silly addNameRange     '1.2.9',
+115 silly addNameRange     '1.2.10',
+115 silly addNameRange     '1.2.11',
+115 silly addNameRange     '1.3.0',
+115 silly addNameRange     '1.3.1',
+115 silly addNameRange     '1.3.2',
+115 silly addNameRange     '1.3.3',
+115 silly addNameRange     '1.3.4',
+115 silly addNameRange     '1.3.5',
+115 silly addNameRange     '1.3.6',
+115 silly addNameRange     '1.3.7',
+115 silly addNameRange     '1.3.8',
+115 silly addNameRange     '1.3.9',
+115 silly addNameRange     '1.3.10',
+115 silly addNameRange     '1.3.11',
+115 silly addNameRange     '1.3.12',
+115 silly addNameRange     '1.3.13',
+115 silly addNameRange     '1.3.14',
+115 silly addNameRange     '1.3.15',
+115 silly addNameRange     '1.3.16',
+115 silly addNameRange     '1.4.0',
+115 silly addNameRange     '1.5.0',
+115 silly addNameRange     '1.6.0',
+115 silly addNameRange     '1.6.1',
+115 silly addNameRange     '1.6.2',
+115 silly addNameRange     '1.6.3',
+115 silly addNameRange     '1.6.4',
+115 silly addNameRange     '1.6.5',
+115 silly addNameRange     '2.0.0-alpha.1',
+115 silly addNameRange     '2.0.0-alpha.2',
+115 silly addNameRange     '1.6.6',
+115 silly addNameRange     '2.0.0-alpha.3',
+115 silly addNameRange     '2.0.0-alpha.4',
+115 silly addNameRange     ... 43 more items ] ]
+116 silly addNamed canvas@2.11.2
+117 verbose addNamed "2.11.2" is a plain semver version for canvas
+118 silly mapToRegistry name canvas
+119 silly mapToRegistry using default registry
+120 silly mapToRegistry registry https://registry.npmjs.org/
+121 silly mapToRegistry uri https://registry.npmjs.org/canvas
+122 verbose addRemoteTarball https://registry.npmjs.org/canvas/-/canvas-2.11.2.tgz not in flight; adding
+123 verbose addRemoteTarball [ 'https://registry.npmjs.org/canvas/-/canvas-2.11.2.tgz',
+123 verbose addRemoteTarball   '553d87b1e0228c7ac0fc72887c3adbac4abbd860' ]
+124 info retry fetch attempt 1 at 12:59:58 PM
+125 info attempt registry request try #1 at 12:59:58 PM
+126 http fetch GET https://registry.npmjs.org/canvas/-/canvas-2.11.2.tgz
+127 silly resolveWithNewModule cheerio@1.0.0-rc.12 checking installable status
+128 silly cache add args [ 'cheerio@^1.0.0-rc.10', null ]
+129 verbose cache add spec cheerio@^1.0.0-rc.10
+130 silly cache add parsed spec Result {
+130 silly cache add   raw: 'cheerio@^1.0.0-rc.10',
+130 silly cache add   scope: null,
+130 silly cache add   name: 'cheerio',
+130 silly cache add   rawSpec: '^1.0.0-rc.10',
+130 silly cache add   spec: '>=1.0.0-rc.10 <2.0.0',
+130 silly cache add   type: 'range' }
+131 silly addNamed cheerio@>=1.0.0-rc.10 <2.0.0
+132 verbose addNamed ">=1.0.0-rc.10 <2.0.0" is a valid semver range for cheerio
+133 silly addNameRange { name: 'cheerio',
+133 silly addNameRange   range: '>=1.0.0-rc.10 <2.0.0',
+133 silly addNameRange   hasData: false }
+134 silly mapToRegistry name cheerio
+135 silly mapToRegistry using default registry
+136 silly mapToRegistry registry https://registry.npmjs.org/
+137 silly mapToRegistry uri https://registry.npmjs.org/cheerio
+138 verbose addNameRange registry:https://registry.npmjs.org/cheerio not in flight; fetching
+139 verbose get https://registry.npmjs.org/cheerio not expired, no request
+140 silly addNameRange number 2 { name: 'cheerio', range: '>=1.0.0-rc.10 <2.0.0', hasData: true }
+141 silly addNameRange versions [ 'cheerio',
+141 silly addNameRange   [ '0.0.1',
+141 silly addNameRange     '0.0.2',
+141 silly addNameRange     '0.0.3',
+141 silly addNameRange     '0.0.4',
+141 silly addNameRange     '0.1.1',
+141 silly addNameRange     '0.1.2',
+141 silly addNameRange     '0.1.3',
+141 silly addNameRange     '0.1.4',
+141 silly addNameRange     '0.1.5',
+141 silly addNameRange     '0.2.0',
+141 silly addNameRange     '0.2.1',
+141 silly addNameRange     '0.2.2',
+141 silly addNameRange     '0.3.0',
+141 silly addNameRange     '0.3.1',
+141 silly addNameRange     '0.3.2',
+141 silly addNameRange     '0.4.0',
+141 silly addNameRange     '0.4.1',
+141 silly addNameRange     '0.4.2',
+141 silly addNameRange     '0.5.0',
+141 silly addNameRange     '0.5.1',
+141 silly addNameRange     '0.5.2',
+141 silly addNameRange     '0.6.0',
+141 silly addNameRange     '0.6.1',
+141 silly addNameRange     '0.6.2',
+141 silly addNameRange     '0.7.0',
+141 silly addNameRange     '0.8.0',
+141 silly addNameRange     '0.8.1',
+141 silly addNameRange     '0.8.2',
+141 silly addNameRange     '0.8.3',
+141 silly addNameRange     '0.9.0',
+141 silly addNameRange     '0.9.1',
+141 silly addNameRange     '0.9.2',
+141 silly addNameRange     '0.10.0',
+141 silly addNameRange     '0.10.1',
+141 silly addNameRange     '0.10.2',
+141 silly addNameRange     '0.10.3',
+141 silly addNameRange     '0.10.4',
+141 silly addNameRange     '0.10.5',
+141 silly addNameRange     '0.10.6',
+141 silly addNameRange     '0.10.7',
+141 silly addNameRange     '0.10.8',
+141 silly addNameRange     '0.11.0',
+141 silly addNameRange     '0.12.0',
+141 silly addNameRange     '0.12.1',
+141 silly addNameRange     '0.12.2',
+141 silly addNameRange     '0.12.3',
+141 silly addNameRange     '0.12.4',
+141 silly addNameRange     '0.13.0',
+141 silly addNameRange     '0.13.1',
+141 silly addNameRange     '0.14.0',
+141 silly addNameRange     '0.15.0',
+141 silly addNameRange     '0.16.0',
+141 silly addNameRange     '0.17.0',
+141 silly addNameRange     '0.18.0',
+141 silly addNameRange     '0.19.0',
+141 silly addNameRange     '0.20.0',
+141 silly addNameRange     '0.22.0',
+141 silly addNameRange     '1.0.0-rc.1',
+141 silly addNameRange     '1.0.0-rc.2',
+141 silly addNameRange     '1.0.0-rc.3',
+141 silly addNameRange     '1.0.0-rc.4',
+141 silly addNameRange     '1.0.0-rc.5',
+141 silly addNameRange     '1.0.0-rc.6',
+141 silly addNameRange     '1.0.0-rc.7',
+141 silly addNameRange     '1.0.0-rc.8',
+141 silly addNameRange     '1.0.0-rc.9',
+141 silly addNameRange     '1.0.0-rc.10',
+141 silly addNameRange     '1.0.0-rc.11',
+141 silly addNameRange     '1.0.0-rc.12' ] ]
+142 silly addNamed cheerio@1.0.0-rc.12
+143 verbose addNamed "1.0.0-rc.12" is a plain semver version for cheerio
+144 silly mapToRegistry name cheerio
+145 silly mapToRegistry using default registry
+146 silly mapToRegistry registry https://registry.npmjs.org/
+147 silly mapToRegistry uri https://registry.npmjs.org/cheerio
+148 verbose addRemoteTarball https://registry.npmjs.org/cheerio/-/cheerio-1.0.0-rc.12.tgz not in flight; adding
+149 verbose addRemoteTarball [ 'https://registry.npmjs.org/cheerio/-/cheerio-1.0.0-rc.12.tgz',
+149 verbose addRemoteTarball   '788bf7466506b1c6bf5fae51d24a2c4d62e47683' ]
+150 info retry fetch attempt 1 at 12:59:58 PM
+151 info attempt registry request try #1 at 12:59:58 PM
+152 http fetch GET https://registry.npmjs.org/cheerio/-/cheerio-1.0.0-rc.12.tgz
+153 http fetch 200 https://registry.npmjs.org/canvas/-/canvas-2.11.2.tgz
+154 silly fetchAndShaCheck shasum 553d87b1e0228c7ac0fc72887c3adbac4abbd860
+155 verbose addTmpTarball /tmp/npm-14168-d202d1f9/registry.npmjs.org/canvas/-/canvas-2.11.2.tgz not in flight; adding
+156 verbose addTmpTarball already have metadata; skipping unpack for canvas@2.11.2
+157 silly cache afterAdd canvas@2.11.2
+158 verbose afterAdd /opt/ml/.npm/canvas/2.11.2/package/package.json not in flight; writing
+159 verbose afterAdd /opt/ml/.npm/canvas/2.11.2/package/package.json written
+160 http fetch 200 https://registry.npmjs.org/cheerio/-/cheerio-1.0.0-rc.12.tgz
+161 silly fetchAndShaCheck shasum 788bf7466506b1c6bf5fae51d24a2c4d62e47683
+162 verbose addTmpTarball /tmp/npm-14168-d202d1f9/registry.npmjs.org/cheerio/-/cheerio-1.0.0-rc.12.tgz not in flight; adding
+163 verbose addTmpTarball already have metadata; skipping unpack for cheerio@1.0.0-rc.12
+164 silly cache afterAdd cheerio@1.0.0-rc.12
+165 verbose afterAdd /opt/ml/.npm/cheerio/1.0.0-rc.12/package/package.json not in flight; writing
+166 verbose afterAdd /opt/ml/.npm/cheerio/1.0.0-rc.12/package/package.json written
+167 http 200 https://registry.npmjs.org/getopts
+168 verbose headers { date: 'Sun, 06 Aug 2023 12:59:59 GMT',
+168 verbose headers   'content-type': 'application/json',
+168 verbose headers   'transfer-encoding': 'chunked',
+168 verbose headers   connection: 'keep-alive',
+168 verbose headers   'cf-ray': '7f2775c8abc4c185-ICN',
+168 verbose headers   'cf-cache-status': 'REVALIDATED',
+168 verbose headers   'access-control-allow-origin': '*',
+168 verbose headers   'cache-control': 'public, max-age=300',
+168 verbose headers   etag: 'W/"8340c867261db65d6c5ace81d1d98518"',
+168 verbose headers   'last-modified': 'Tue, 03 May 2022 15:33:24 GMT',
+168 verbose headers   vary: 'accept-encoding, accept',
+168 verbose headers   'x-amz-replication-status': 'COMPLETED',
+168 verbose headers   server: 'cloudflare',
+168 verbose headers   'content-encoding': 'gzip' }
+169 silly get cb [ 200,
+169 silly get   { date: 'Sun, 06 Aug 2023 12:59:59 GMT',
+169 silly get     'content-type': 'application/json',
+169 silly get     'transfer-encoding': 'chunked',
+169 silly get     connection: 'keep-alive',
+169 silly get     'cf-ray': '7f2775c8abc4c185-ICN',
+169 silly get     'cf-cache-status': 'REVALIDATED',
+169 silly get     'access-control-allow-origin': '*',
+169 silly get     'cache-control': 'public, max-age=300',
+169 silly get     etag: 'W/"8340c867261db65d6c5ace81d1d98518"',
+169 silly get     'last-modified': 'Tue, 03 May 2022 15:33:24 GMT',
+169 silly get     vary: 'accept-encoding, accept',
+169 silly get     'x-amz-replication-status': 'COMPLETED',
+169 silly get     server: 'cloudflare',
+169 silly get     'content-encoding': 'gzip' } ]
+170 verbose get saving getopts to /opt/ml/.npm/registry.npmjs.org/getopts/.cache.json
+171 verbose stack Error: Missing required argument #1
+171 verbose stack     at andLogAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:31:3)
+171 verbose stack     at fetchPackageMetadata (/usr/share/npm/lib/fetch-package-metadata.js:51:22)
+171 verbose stack     at resolveWithNewModule (/usr/share/npm/lib/install/deps.js:456:12)
+171 verbose stack     at /usr/share/npm/lib/install/deps.js:457:7
+171 verbose stack     at /usr/share/npm/node_modules/iferr/index.js:13:50
+171 verbose stack     at /usr/share/npm/lib/fetch-package-metadata.js:37:12
+171 verbose stack     at addRequestedAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:82:5)
+171 verbose stack     at returnAndAddMetadata (/usr/share/npm/lib/fetch-package-metadata.js:117:7)
+171 verbose stack     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:134:20)
+171 verbose stack     at /usr/share/npm/node_modules/iferr/index.js:13:50
+172 verbose cwd /opt/ml/final/front
+173 error Linux 4.4.0-59-generic
+174 error argv "/usr/bin/node" "/usr/bin/npm" "install" "svg-render"
+175 error node v8.10.0
+176 error npm  v3.5.2
+177 error code EMISSINGARG
+178 error typeerror Error: Missing required argument #1
+178 error typeerror     at andLogAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:31:3)
+178 error typeerror     at fetchPackageMetadata (/usr/share/npm/lib/fetch-package-metadata.js:51:22)
+178 error typeerror     at resolveWithNewModule (/usr/share/npm/lib/install/deps.js:456:12)
+178 error typeerror     at /usr/share/npm/lib/install/deps.js:457:7
+178 error typeerror     at /usr/share/npm/node_modules/iferr/index.js:13:50
+178 error typeerror     at /usr/share/npm/lib/fetch-package-metadata.js:37:12
+178 error typeerror     at addRequestedAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:82:5)
+178 error typeerror     at returnAndAddMetadata (/usr/share/npm/lib/fetch-package-metadata.js:117:7)
+178 error typeerror     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:134:20)
+178 error typeerror     at /usr/share/npm/node_modules/iferr/index.js:13:50
+179 error typeerror This is an error with npm itself. Please report this error at:
+179 error typeerror     <http://github.com/npm/npm/issues>
+180 verbose exit [ 1, true ]

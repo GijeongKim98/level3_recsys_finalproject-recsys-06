@@ -1,0 +1,86 @@
+@import url(color.css);
+@import url(font.css);
+@import url(dashboard_layout.css);
+
+#home {
+    outline: solid 1px var(--green);
+    color: var(--green);
+}
+
+#home:hover {
+    background-color: var(--blurred-navy);
+}
+
+#home > .app_side_bar_icon {
+    background-image: url(../img/home_green.svg);
+}
+
+#stat_card {
+    grid-column-start: 1;
+	grid-column-end: 5;
+    > .app_card {
+        height: 348px;
+    }
+}
+
+#company_card {
+    grid-column-start: 5;
+	grid-column-end: 7;
+    > .app_card {
+        padding-top: 8px;
+        padding-bottom: 24px;
+        height: 348px;
+    }
+}
+
+#table_title_company_iswish {
+    width: 30%;
+}
+
+#table_title_company_title {
+    width: 70%;
+}
+
+#table_title_problem_id {
+    width: calc(10% - 4px);
+    margin-left: 4px;
+}
+
+#table_title_problem_title {
+    width: 45%;
+}
+
+#table_title_problem_tag {
+    width: calc(45% - 4px);
+    margin-right: 4px;
+}
+
+#table_title_repo_title {
+    width: calc(20% - 8px);
+    margin-left: 8px;
+}
+
+#table_title_repo_about {
+    width: 60%;
+}
+
+#table_title_repo_domain {
+    width: calc(20% - 8px);
+    margin-right: 8px;
+}
+
+#test_card {
+    grid-column-start: 1;
+	grid-column-end: 3;
+    > .app_card {
+        height: 432px;
+    }
+}
+
+#repo_card {
+    grid-column-start: 3;
+	grid-column-end: 7;
+    > .app_card {
+        height: 432px;
+    }
+}

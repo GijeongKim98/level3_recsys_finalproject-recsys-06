@@ -1,0 +1,85 @@
+@import url(color.css);
+@import url(font.css);
+@import url(dashboard_layout.css);
+
+#company {
+    outline: solid 1px var(--green);
+    color: var(--green);
+}
+
+#company:hover {
+    background-color: var(--blurred-navy);
+}
+
+#company > .app_side_bar_icon {
+    background-image: url(../img/favorite_green.svg);
+}
+
+.app_contents {
+    padding-top: 80px;
+}
+
+.company_container:nth-child(3n+1) {
+    grid-column-start: 1;
+	grid-column-end: 3;
+    > .app_card {
+        aspect-ratio: 1 / 1; 
+    }
+}
+
+.company_container:nth-child(3n+2) {
+    grid-column-start: 3;
+	grid-column-end: 5;
+    > .app_card {
+        aspect-ratio: 1 / 1; 
+    }
+}
+
+.company_container:nth-child(3n) {
+    grid-column-start: 5;
+	grid-column-end: 7;
+    > .app_card {
+        aspect-ratio: 1 / 1; 
+    }
+}
+
+
+#company_general > .app_card_img {
+    background-image: url(../img/company_logo.jpg);
+    background-size: 100%;
+}
+
+#company_naver > .app_card_img {
+    background-image: url(../img/naver_logo.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+#company_kakao > .app_card_img {
+    background-image: url(../img/kakao_logo.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+#company_samsung_elec > .app_card_img {
+    background-image: url(../img/samsung_elec_logo.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+#company_samsung_sds > .app_card_img {
+    background-image: url(../img/samsung_elec.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+#company_lg > .app_card_img {
+    background-image: url(../img/lg_logo.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}

@@ -1,0 +1,51 @@
+@import url(color.css);
+@import url(font.css);
+@import url(dashboard_layout.css);
+
+#codingtest {
+    outline: solid 1px var(--green);
+    color: var(--green);
+}
+
+#codingtest:hover {
+    background-color: var(--blurred-navy);
+}
+
+#codingtest > .app_side_bar_icon {
+    background-image: url(./../img/test_green.svg);
+}
+
+.table_title_problem_id {
+    width: calc(10% - 4px);
+    margin-left: 4px;
+}
+
+.table_title_problem_title {
+    width: 45%;
+}
+
+.table_title_problem_tag {
+    width: calc(45% - 4px);
+    margin-right: 4px;
+}
+
+.test_card {
+    > .app_card {
+        height: calc(100vh - 300px); 
+    }
+}
+
+.test_card:nth-child(3n+1) {
+    grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+.test_card:nth-child(3n+2) {
+    grid-column-start: 3;
+	grid-column-end: 5;
+}
+
+.test_card:nth-child(3n) {
+    grid-column-start: 5;
+	grid-column-end: 7;
+}

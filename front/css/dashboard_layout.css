@@ -1,0 +1,338 @@
+@import url(color.css);
+@import url(font.css);
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background-color: var(--background-white);
+    width: 100vw;
+    height:100vh;
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+canvas {
+    aspect-ratio: none;
+    margin-right: 4px;
+    margin-top: 4px;
+}
+
+.app {
+    display: flex;
+    width: 100vw;
+    color: var(--black);
+}
+
+.app_side_bar {
+    height: 100vh;
+    background-color: var(--blurred-navy);
+    padding: 0px 32px;
+    top: 0px;
+    bottom: 0px;
+    position: sticky;
+}
+
+.app_side_bar_logo {
+    font-family: "KBO-Dia-Gothic_bold";
+    font-size: 36px;
+    color: var(--green);
+    margin: 66px 16px 0px 16px;
+    align-items: center;
+}
+
+.app_side_bar_contents {
+    margin-top:  64px;
+    margin-bottom: 64px;
+}
+
+.app_side_bar_item {
+    display: flex;
+    height: 48px;
+    width: 194px;
+    border-radius: 4px;
+    padding: 2px 16px 2px 16px;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 300;
+    align-items : center;
+    margin: 4px 0px;
+}
+
+.app_side_bar_item:hover {
+    background-color: var(--navy);
+    cursor: pointer;
+}
+
+.app_side_bar_icon {
+    width: 22px;
+    height: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.app_side_bar_txt {
+    margin: 0px 16px 4px 16px;
+}
+
+.app_main {
+    width: 100%;
+    height: 100%;
+    flex: 1 1 0%;
+}
+
+.app_header {
+    border-bottom: 1px solid var(--border-white);
+}    
+
+.app_header_contents {
+    display: flex;
+    align-items : center;
+    margin: 64px 48px 32px 48px;
+}
+
+.app_header_title {
+    color: var(--black);
+}
+
+.app_header_title > h2 {
+    font-size: 34px;
+    margin: 0px;
+}
+
+.app_header_profile_refresh_btn {
+    display: flex;
+    padding: 0px 16px;
+    height: 49px;
+    border-radius: 4px;
+    background-color: #32c79b;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    margin-left: auto;
+}
+
+.app_header_profile_refresh_btn:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.app_header_profile_refresh_btn_icon {
+    width: 22px;
+    height: 22px;
+    margin: auto;
+    background-image: url(../img/refresh.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.app_header_profile_refresh_btn_txt {
+    color: var(--white);
+    font-size: 16px;
+    margin: auto;
+    margin-right: 16px;
+    margin-left: 16px;
+    padding-bottom: 4px;
+}
+
+.app_contents {
+    height: 100%;
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 16px 48px 64px 48px;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+.app_card {
+    position: relative;
+    background-color: var(--white);
+    border-radius: 4px;
+    padding: 16px 32px;
+    outline: solid 1px var(--border-white);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.app_card_table {
+    width: 100%;
+    height: 100%;
+}
+
+.app_card_table_item {
+    display: flex;
+    padding: 8px 0px;
+    color: var(--black);
+    font-weight: 400;
+    border-bottom: solid 1px var(--border-white)
+}
+
+.app_card_table_item:hover {
+    background-color: var(--border-white);
+    cursor: pointer;
+}
+
+.item_company:hover {
+    background-color: var(--white);
+    cursor: default;
+}
+
+.item_problem .item_text:nth-child(2n+1) {
+    width: calc(10% - 4px);
+    margin-left: 4px;
+}
+
+.item_problem .item_text:nth-child(2n) {
+    width: calc(45% - 16px);
+    margin: 0 8px;
+}
+
+.item_problem .item_tags {
+    width: calc(45% - 4px);
+    margin-right: 4px;
+}
+
+.app_card_table_title {
+    display: flex;
+    border-bottom: solid 1px var(--border-white);
+    color: var(--gray);
+    padding-bottom: 2px;
+    text-align: center;
+}
+
+.item_checkbox_container {
+    width: 30%;
+}
+
+.item_checkbox_wrapper {
+    width: 16px;
+    margin: auto;
+}
+
+.item_checkbox {
+    margin-right: 0px;
+}
+
+.item_company .item_text {
+    width: 70%;
+}
+
+.item_text {
+    text-align: center;
+    align-items: center;
+}
+
+.item_repo .item_text {
+    height: 60px;
+}
+
+.item_repo .item_text:nth-child(3n+1) {
+    line-height: 60px;
+    width: calc(20% - 8px);
+    margin: 0 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item_repo .item_text:nth-child(3n+2) {
+    width: calc(60% - 16px);
+    margin: 0 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.item_repo .item_text:nth-child(3n) {
+    line-height: 60px;
+    width: calc(20% - 8px);
+    margin: 0 8px;
+    overflow: hidden;
+}
+
+.item_tags {
+    display: flex;
+    justify-content: center;
+}
+
+.item_tag {
+    font-size: 12px;
+    color: var(--white);
+    padding: 2px 8px;
+    background-color: var(--light-navy);
+    border-radius: 6px;
+    margin: 0px 4px;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+}
+
+.app_card_img {
+    height: calc(100% - 32px);
+    width: 100%;
+}
+
+.app_card_inner_title {
+    height: 32px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--navy);
+}
+
+
+#home > .app_side_bar_icon {
+    background-image: url(../img/home.svg);
+}
+
+#stat > .app_side_bar_icon {
+    background-image: url(../img/stat.svg);
+}
+
+
+#company > .app_side_bar_icon {
+    background-image: url(../img/favorite.svg);
+}
+
+#codingtest > .app_side_bar_icon {
+    background-image: url(../img/test.svg);
+}
+
+#project > .app_side_bar_icon {
+    background-image: url(../img/project.svg);
+}
+
+#settings > .app_side_bar_icon {
+    background-image: url(../img/settings.svg);
+}
+
+#logout {
+    position: absolute;
+    color: var(--pink);
+    font-weight: 500;
+    bottom: 64px;
+}
+
+#logout:hover {
+    outline: none;
+    background-color: var(--pink);
+    color: var(--white);
+    .app_side_bar_icon {
+        background-image: url(../img/logout_white.svg);
+    }
+}
+
+#logout:active {
+    outline: none;
+    background-color: var(--darker-pink);
+    color: var(--white);
+    .app_side_bar_icon {
+        background-image: url(../img/logout_white.svg);
+    }
+}
+
+#logout > .app_side_bar_icon {
+    background-image: url(../img/logout.svg);
+}
+

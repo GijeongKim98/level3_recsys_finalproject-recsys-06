@@ -1,0 +1,16 @@
+@import url(color.css);
+@import url(font.css);
+@import url(dashboard_layout.css);
+
+#project {
+    outline: solid 1px var(--green);
+    color: var(--green);
+}
+
+#project:hover {
+    background-color: var(--blurred-navy);
+}
+
+#project > .app_side_bar_icon {
+    background-image: url(../img/project_green.svg);
+}

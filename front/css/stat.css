@@ -1,0 +1,50 @@
+@import url(color.css);
+@import url(font.css);
+@import url(dashboard_layout.css);
+
+#stat {
+    outline: solid 1px var(--green);
+    color: var(--green);
+}
+
+#stat:hover {
+    background-color: var(--blurred-navy);
+}
+
+#stat > .app_side_bar_icon {
+    background-image: url(../img/stat_green.svg);
+}
+
+#table_title_company_iswish {
+    width: 30%;
+}
+
+#table_title_company_title {
+    width: 70%;
+}
+
+#big_stat_card {
+    grid-column-start: 1;
+	grid-column-end: 5;
+    > .app_card {
+        height: 348px;
+    }
+}
+
+#company_card {
+    grid-column-start: 5;
+	grid-column-end: 7;
+    > .app_card {
+        padding-top: 8px;
+        padding-bottom: 24px;
+        height: 348px;
+    }
+}
+
+#middle_stat_card {
+    grid-column-start: 1;
+	grid-column-end: 7;
+    > .app_card {
+        height: 348px;
+    }
+}
