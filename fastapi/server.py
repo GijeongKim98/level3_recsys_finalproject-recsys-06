@@ -10,6 +10,8 @@ import numpy as np
 import pickle
 from torch_geometric.nn.models import LightGCN
 import torch
+import json
+import joblib
 
 
 def mysql_connect():
@@ -17,7 +19,8 @@ def mysql_connect():
         host='database-1.ctbbcoxcjq1p.ap-southeast-2.rds.amazonaws.com',
         port=3306,
         user='admin',
-        password=password
+        password=password,
+        database='processed_db'
     )
     
     cursor = connection.cursor(pymysql.cursors.DictCursor)
@@ -27,15 +30,9 @@ def mysql_connect():
 
 
 def get_mysql_query(cursor, input_str):
-    try:
-        cursor.execute(input_str)
-    except pymysql.err.OperationalError as e:
-        if e[0] == 2013: # Lost connection to server 
-            cursor = mysql_connect()
-            cursor.execute(input_str)
-        else:
-            raise
-            
+    cursor.connection.ping(reconnect=True)
+    cursor.execute(input_str)
+
     return cursor
 
 
@@ -554,3 +551,134 @@ def get_company_bigtag_ratings(label: str, language: str):
         result = result[:20]
     
     return result
+
+@app.get("/test/problem/{user_id}/{company_str}")
+def test_problem_recommend(user_id: str, company_str: str):
+    return {'hi': 'hi'}
+
+with open('./json/data_user.json','r') as f:
+    user_dict = json.load(f)
+lgb_0_model = joblib.load('./model/lgb_0_ng3.pkl')
+lgb_1_model = joblib.load('./model/lgb_1_ng3.pkl')
+lgb_2_model = joblib.load('./model/lgb_2_ng3.pkl')
+lgb_3_model = joblib.load('./model/lgb_3_ng3.pkl')
+xg_0_model = joblib.load('./model/xg_0_ng3.pkl')
+xg_1_model = joblib.load('./model/xg_1_ng3.pkl')
+xg_2_model = joblib.load('./model/xg_2_ng3.pkl')
+xg_3_model = joblib.load('./model/xg_3_ng3.pkl')
+
+@app.get("/test/tree_model/{user_id}/{company_str}")
+def tree_model_predict(user_id, problem_ids):
+    lgbm_pred = []
+    xg_pred=[]
+    for i, pid in enumerate(problem_ids):
+        input_str = f'''\
+                select *\
+                from user\
+                where user_id = '{user_id}';\
+            '''
+        
+        get_mysql_query(cursor, input_str)
+
+        query_u = cursor.fetchall()[0]
+        
+        input_str = f'''\
+                select *\
+                from problem\
+                where problem_id = '{problem_id}';\
+            '''
+        
+        get_mysql_query(cursor, input_str)
+
+        query_p = cursor.fetchall()[0]
+        
+        input_str = f'''\
+                select *\
+                from user_mtag\
+                where problem_id = '{problem_id}';\
+            '''
+        
+        get_mysql_query(cursor, input_str)
+
+        query_um = cursor.fetchall()[0]
+        
+        input_str = f'''\
+                select *\
+                from problem_mtag\
+                where problem_id = '{problem_id}';\
+            '''
+        
+        get_mysql_query(cursor, input_str)
+
+        query_pm = cursor.fetchall()[0]
+        
+        return {
+            'query_u': query_u,
+            'query_p': query_p,
+            'query_um': query_p,
+            'query_pm': query_p
+        }
+        
+        a = pd.DataFrame(index=[i])
+        for k,v in query_p.items():
+            a[k]=v
+        for k,v in query_u.items():
+            a[k]=v
+        a = a[['level', 'correct_users',
+               'voted_users', 'sprout', 'average_tries', 'solved_count',
+               'follower_count', 'following_count', 'tier', 'max_streak', 'rating']]
+        for k,v in sorted(list(query_pm.items())):
+            a[k]=v
+        for k,v in sorted(list(query_um.items())):
+            a['u_'+k]=v
+        a.drop(['problem_id','u_user_id'],axis=1,inplace=True)
+        if user_id in user_dict['df0']:
+            lgbm_pred.append(lgb_0_model.predict(a)[0])
+            xg_pred.append(xg_0_model.predict(a)[0])
+        elif user_id in user_dict['df1']:
+            lgbm_pred.append(lgb_1_model.predict(a)[0])
+            xg_pred.append(xg_1_model.predict(a)[0])
+        elif user_id in user_dict['df2']:
+            lgbm_pred.append(lgb_2_model.predict(a)[0])
+            xg_pred.append(xg_2_model.predict(a)[0])
+        elif user_id in user_dict['df3']:
+            lgbm_pred.append(lgb_3_model.predict(a)[0])
+            xg_pred.append(xg_3_model.predict(a)[0])
+    return np.array(lgbm_pred), np.array(xg_pred)
+
+# inference
+@app.get("/test/inference/{user_id}/{company_str}")
+def inference_model(user_id, problem_ids, lgcn_model):
+
+    node2idx = {node: idx for idx, node in idx2node.items()}
+    edges = []
+    for problem_id in problem_ids:
+        edges.append([node2idx[user_id],node2idx[problem_id]])
+
+    edges = torch.LongTensor(edges).T
+
+    edges = edges.to(device)
+
+    lgcn_predicts = lgcn_model.predict_link(edge_index=edges, prob=True).detach().cpu().numpy()
+    lgbm_predicts, xgb_predicts= tree_model_predict(user_id, problem_ids)
+    predicts = lgcn_model *0.4 + lgbm*0.3 + xgb*0.3
+
+    predict_sort = sorted(predicts)
+
+    unit = len(predict_sort) // 10
+
+    q_0, q_1, q_2 = predict_sort[unit], predict_sort[unit*5], predict_sort[unit*9]
+
+    hard_problem, medium_problem, easy_problem = [],[],[]
+
+    for idx, pre_dict in enumerate(predicts):
+        if pre_dict < q_0:
+            continue
+        elif pre_dict < q_1 and len(hard_problem) <= 20:
+            hard_problem.append(problem_ids[idx])
+        elif pre_dict < q_2 and len(medium_problem) <= 20:
+            medium_problem.append(problem_ids[idx])
+        elif pre_dict >= q_2 and len(easy_problem) <= 20:
+            easy_problem.append(problem_ids[idx])
+
+    return hard_problem, medium_problem, easy_problem
