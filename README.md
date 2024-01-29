@@ -47,3 +47,14 @@
 주의:
 - data 파일에 필요 파일, model에는 .pt 파일 추가 필요
 
+
+### light_gcn
+
+설명 : LightGCN 모델 학습 환경
+
+- LightGCN model 모델 학습 환경 구축
+- 새로운 모델을 추가할 수 있도록 설계
+
+주의:
+- 모델 추가시 light_gcn/model 부분의 수정이 필요
+- 모델의 하이퍼 파라미터 수정시 setting.yaml 파일 수정 필요
